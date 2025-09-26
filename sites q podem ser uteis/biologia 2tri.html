@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo dos Reinos - Microbiologia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 0.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #4a6491;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .kingdom-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .fungi .card-header { background-color: #8e44ad; }
+        .bacteria .card-header { background-color: #e74c3c; }
+        .archaea .card-header { background-color: #f39c12; }
+        .protozoa .card-header { background-color: #3498db; }
+        .algae .card-header { background-color: #27ae60; }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .comparison {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .study-tips {
+            background-color: #e8f4f8;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 5px solid #3498db;
+        }
+        
+        .study-tips h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .kingdom-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reinos Microbianos e Protistas</h1>
+        <p class="subtitle">Guia de estudo para o 2º ano do Ensino Médio</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#fungi">Fungos</a></li>
+            <li><a href="#bacteria">Bactérias</a></li>
+            <li><a href="#archaea">Arqueas</a></li>
+            <li><a href="#protozoa">Protozoários</a></li>
+            <li><a href="#algae">Algas</a></li>
+            <li><a href="#comparison">Comparação</a></li>
+            <li><a href="#tips">Dicas de Estudo</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Introdução aos Reinos Biológicos</h2>
+            <p>Os seres vivos são classificados em reinos com base em suas características fundamentais. Neste site, vamos explorar os reinos dos fungos, bactérias, arqueas, protozoários e algas, que incluem organismos microscópicos e macroscópicos fundamentais para a vida na Terra.</p>
+        </section>
+        
+        <div class="kingdom-cards">
+            <div class="card fungi" id="fungi">
+                <div class="card-header">
+                    <h3>Reino Fungi</h3>
+                </div>
+                <div class="card-body">
+                    <p>Organismos eucariontes, heterótrofos, com nutrição por absorção.</p>
+                    <ul>
+                        <li><strong>Características:</strong> Parede celular de quitina, podem ser uni ou pluricelulares</li>
+                        <li><strong>Reprodução:</strong> Sexuada e assexuada (esporos)</li>
+                        <li><strong>Exemplos:</strong> Cogumelos, leveduras, bolores</li>
+                        <li><strong>Importância:</strong> Decomposição, produção de alimentos (pão, queijo), medicamentos (penicilina)</li>
+                        <li><strong>Doenças:</strong> Micoses (pé de atleta, candidíase)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card bacteria" id="bacteria">
+                <div class="card-header">
+                    <h3>Reino Monera - Bactérias</h3>
+                </div>
+                <div class="card-body">
+                    <p>Organismos procariontes, unicelulares, com grande diversidade metabólica.</p>
+                    <ul>
+                        <li><strong>Características:</strong> Sem núcleo organizado, DNA circular, parede celular de peptidoglicano</li>
+                        <li><strong>Formas:</strong> Cocos (esféricas), bacilos (alongadas), espirilos (espiraladas)</li>
+                        <li><strong>Nutrição:</strong> Autótrofas (fotossíntese ou quimiossíntese) ou heterótrofas</li>
+                        <li><strong>Importância:</strong> Ciclos biogeoquímicos, fermentação, biotecnologia</li>
+                        <li><strong>Doenças:</strong> Tuberculose, cólera, pneumonia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card archaea" id="archaea">
+                <div class="card-header">
+                    <h3>Domínio Archaea</h3>
+                </div>
+                <div class="card-body">
+                    <p>Organismos procariontes que vivem em ambientes extremos.</p>
+                    <ul>
+                        <li><strong>Características:</strong> Semelhantes às bactérias, mas com composição molecular única</li>
+                        <li><strong>Habitats:</strong> Fontes termais, lagos salgados, pântanos, intestino de animais</li>
+                        <li><strong>Tipos:</strong> Metanogênicas, halófitas, termoacidófilas</li>
+                        <li><strong>Diferenças das bactérias:</strong> Parede celular sem peptidoglicano, membranas lipídicas diferentes</li>
+                        <li><strong>Importância:</strong> Participam de ciclos biogeoquímicos, potencial biotecnológico</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card protozoa" id="protozoa">
+                <div class="card-header">
+                    <h3>Protozoários (Reino Protista)</h3>
+                </div>
+                <div class="card-body">
+                    <p>Organismos eucariontes, unicelulares, heterótrofos.</p>
+                    <ul>
+                        <li><strong>Classificação por locomoção:</strong>
+                            <ul>
+                                <li>Rizópodes (pseudópodes) - Amebas</li>
+                                <li>Ciliados (cílios) - Paramécio</li>
+                                <li>Flagelados (flagelos) - Tripanossoma</li>
+                                <li>Esporozoários (sem locomoção) - Plasmodium (malária)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Habitat:</strong> Água doce, salgada, solo, parasitas</li>
+                        <li><strong>Reprodução:</strong> Assexuada (divisão binária) e sexuada</li>
+                        <li><strong>Doenças:</strong> Malária, doença de Chagas, amebíase</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card algae" id="algae">
+                <div class="card-header">
+                    <h3>Algas (Reino Protista)</h3>
+                </div>
+                <div class="card-body">
+                    <p>Organismos eucariontes, fotossintetizantes, uni ou pluricelulares.</p>
+                    <ul>
+                        <li><strong>Classificação por pigmentos:</strong>
+                            <ul>
+                                <li>Clorofíceas (verdes) - Clorofila a e b</li>
+                                <li>Rodofíceas (vermelhas) - Ficoeritrina</li>
+                                <li>Feofíceas (marrom) - Fucoxantina</li>
+                            </ul>
+                        </li>
+                        <li><strong>Importância:</strong> Produção de oxigênio, base das cadeias alimentares aquáticas</li>
+                        <li><strong>Utilização humana:</strong> Alimento, fertilizantes, espessantes (ágar)</li>
+                        <li><strong>Fenômenos:</strong> Maré vermelha (proliferação de algas tóxicas)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <section class="comparison" id="comparison">
+            <h2>Comparação entre os Grupos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Fungos</th>
+                        <th>Bactérias</th>
+                        <th>Arqueas</th>
+                        <th>Protozoários</th>
+                        <th>Algas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tipo de célula</td>
+                        <td>Eucarionte</td>
+                        <td>Procarionte</td>
+                        <td>Procarionte</td>
+                        <td>Eucarionte</td>
+                        <td>Eucarionte</td>
+                    </tr>
+                    <tr>
+                        <td>Organização</td>
+                        <td>Uni/pluricelular</td>
+                        <td>Unicelular</td>
+                        <td>Unicelular</td>
+                        <td>Unicelular</td>
+                        <td>Uni/pluricelular</td>
+                    </tr>
+                    <tr>
+                        <td>Nutrição</td>
+                        <td>Heterótrofo</td>
+                        <td>Auto/Heterótrofo</td>
+                        <td>Auto/Heterótrofo</td>
+                        <td>Heterótrofo</td>
+                        <td>Autótrofo</td>
+                    </tr>
+                    <tr>
+                        <td>Parede celular</td>
+                        <td>Quitina</td>
+                        <td>Peptidoglicano</td>
+                        <td>Diversos tipos</td>
+                        <td>Ausente</td>
+                        <td>Celulose/outros</td>
+                    </tr>
+                    <tr>
+                        <td>Habitat</td>
+                        <td>Diversos</td>
+                        <td>Ubíquas</td>
+                        <td>Ambientes extremos</td>
+                        <td>Água, solo, parasitas</td>
+                        <td>Aquático principalmente</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="study-tips" id="tips">
+            <h2>Dicas para a Prova</h2>
+            <ul>
+                <li><strong>Foque nas diferenças:</strong> Entenda o que diferencia cada grupo (tipo de célula, nutrição, etc.)</li>
+                <li><strong>Use mnemônicos:</strong> Crie frases ou palavras para lembrar de características importantes</li>
+                <li><strong>Desenhe esquemas:</strong> Represente visualmente os ciclos de vida e estruturas</li>
+                <li><strong>Relacione com exemplos:</strong> Associe cada grupo a doenças, aplicações ou fenômenos conhecidos</li>
+                <li><strong>Revise a tabela comparativa:</strong> Ela resume as informações mais importantes</li>
+                <li><strong>Estude por tópicos:</strong> Separe o conteúdo em blocos para facilitar a memorização</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Lembre-se:</strong> Na prova, preste atenção aos detalhes nas questões, como se o organismo é procarionte ou eucarionte, sua forma de nutrição e habitat.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Site de estudo para o 2º ano do Ensino Médio - Biologia</p>
+        <p>Boa sorte na prova!</p>
+    </footer>
+</body>
+</html>
